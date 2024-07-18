@@ -1,0 +1,991 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <script src="./docs/5.3/assets/js/bootstrap.bundle.js"></script>
+    <script src="./docs/5.3/assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Agentpedia</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/starter-template/">
+
+        
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="./docs/5.3/assets/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="./docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="./docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="./docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="./docs/5.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="./docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="./docs/5.3/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#712cf9">
+
+
+    <style>
+      .circle-number {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        border-radius: 50%;
+        background-color: #f0f0f0;
+        text-align: center;
+        font-size: 14px;
+        /* font-weight: bold; */
+        margin: 2px;
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="./docs/5.3/assets/css/blog.css" rel="stylesheet">
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
+  </symbol>
+  <symbol id="cart" viewBox="0 0 16 16">
+    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </symbol>
+  <symbol id="chevron-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+  </symbol>
+</svg>
+
+<div class="container">
+  <!-- <header class="border-bottom lh-1 py-3 align-items-center text-center" >
+    <div class="row flex-nowrap justify-content-center align-items-center">
+      <div class="text-center">
+        <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-braces-asterisk" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C2.25 2 1.49 2.759 1.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6M14.886 7.9v.164c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456v-1.3c-1.114 0-1.49-.362-1.49-1.456V4.352C14.51 2.759 13.75 2 12.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6M7.5 11.5V9.207l-1.621 1.621-.707-.707L6.792 8.5H4.5v-1h2.293L5.172 5.879l.707-.707L7.5 6.792V4.5h1v2.293l1.621-1.621.707.707L9.208 7.5H11.5v1H9.207l1.621 1.621-.707.707L8.5 9.208V11.5z"/>
+              </svg>
+              &emsp;
+            <span class="fs-4">Agentpedia</span>
+        </a>
+      </div>
+    </div>
+  </header> -->
+
+  <header class="border-bottom lh-1 py-3 d-flex justify-content-center text-center">
+    <div class="d-flex align-items-center text-body-emphasis text-decoration-none">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-braces-asterisk" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C2.25 2 1.49 2.759 1.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6M14.886 7.9v.164c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456v-1.3c-1.114 0-1.49-.362-1.49-1.456V4.352C14.51 2.759 13.75 2 12.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6M7.5 11.5V9.207l-1.621 1.621-.707-.707L6.792 8.5H4.5v-1h2.293L5.172 5.879l.707-.707L7.5 6.792V4.5h1v2.293l1.621-1.621.707.707L9.208 7.5H11.5v1H9.207l1.621 1.621-.707.707L8.5 9.208V11.5z"/>
+      </svg>
+      &thinsp;
+      <span class="fs-1">Agentpedia</span>
+    </div>
+  </header>
+
+</div>
+<br>
+
+
+<main class="container">
+  <!-- <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary"> -->
+    <!-- <div class="col-lg-6 px-0"> -->
+      <!-- <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
+      <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+      <p class="lead mb-0"><a href="#" class="text-body-emphasis fw-bold">Continue reading...</a></p> -->
+        
+    <!-- </div> -->
+    
+  <!-- </div> -->
+
+  <div class="col-auto rounded text-body-emphasis bg-body-secondary">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="col p-4 d-flex flex-column position-static">
+        <h1 class="display-4 fst-italic">故宫</h1>
+        <!-- <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong> -->
+        <!-- <h3 class="mb-0">Featured post</h3> -->
+        <p class="card-text mb-auto">本页面将介绍故宫的门票预约、旅游攻略以及简介，全面了这个古老中国的标志和象征。当你置身于气派规整的高墙深院，能真真切切地感受到它曾经的荣耀。悠久的历史给这里留下了大规模的珍贵建筑和无数文物，也成为今天游玩故宫的主要看点。<span class="badge text-bg-info">89 sources
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-wechat" viewBox="0 0 12 12">
+            <path d="M11.176 14.429c-2.665 0-4.826-1.8-4.826-4.018 0-2.22 2.159-4.02 4.824-4.02S16 8.191 16 10.411c0 1.21-.65 2.301-1.666 3.036a.32.32 0 0 0-.12.366l.218.81a.6.6 0 0 1 .029.117.166.166 0 0 1-.162.162.2.2 0 0 1-.092-.03l-1.057-.61a.5.5 0 0 0-.256-.074.5.5 0 0 0-.142.021 5.7 5.7 0 0 1-1.576.22M9.064 9.542a.647.647 0 1 0 .557-1 .645.645 0 0 0-.646.647.6.6 0 0 0 .09.353Zm3.232.001a.646.646 0 1 0 .546-1 .645.645 0 0 0-.644.644.63.63 0 0 0 .098.356"/>
+            <path d="M0 6.826c0 1.455.781 2.765 2.001 3.656a.385.385 0 0 1 .143.439l-.161.6-.1.373a.5.5 0 0 0-.032.14.19.19 0 0 0 .193.193q.06 0 .111-.029l1.268-.733a.6.6 0 0 1 .308-.088q.088 0 .171.025a6.8 6.8 0 0 0 1.625.26 4.5 4.5 0 0 1-.177-1.251c0-2.936 2.785-5.02 5.824-5.02l.15.002C10.587 3.429 8.392 2 5.796 2 2.596 2 0 4.16 0 6.826m4.632-1.555a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0m3.875 0a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0"/>
+          </svg>
+        </span></p>
+        <!-- <div class="mb-1 text-body-secondary">Jul 16</div> -->
+        <hr>
+        <div class="d-flex text-body-secondary pt-20">
+            <img src="./docs/5.3/assets/img/favicons/my.jpeg" alt="" width="32" height="32" class="rounded-circle me-2">
+            <p class="pb-20 mb-0 small lh-sm">
+              <strong class="d-block text-gray-dark">@sasd-adv</strong>
+              Jul 17, 2024
+            </p>
+            
+          </div>
+      </div>
+      
+      <div class="col-auto d-none d-lg-block">
+        <img class="bd-placeholder-img" width="200" height="250" focusable="false" class="img-fluid" src="./docs/5.3/assets/img/media/case2/first.jpg"></img>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
+          <h3 class="mb-0">Featured post</h3>
+          <div class="mb-1 text-body-secondary">Nov 12</div>
+          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+            Continue reading
+            <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+          </a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img class="bd-placeholder-img" width="200" height="250" focusable="false" class="img-fluid" src="https://sspark.ai/cfimages?u1=6d1Y02f0F5BZBAeCYj%2BRofBo9Gzbd3PFUj4FutEpxxc%2Fo9LY%2FkTWoNzkjuIoerjpntiP4oGL4UHNuX53FFr3a%2BqGXmI27kgMKFN%2FGL818nwAGqM9RvC%2Fl1Cl7%2FeGp%2BUBu%2Bd2sjsb&amp;u2=BNOV1G%2FOc1iFRyBd&amp;width=1024"></img>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success-emphasis">Design</strong>
+          <h3 class="mb-0">Post title</h3>
+          <div class="mb-1 text-body-secondary">Nov 11</div>
+          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+            Continue reading
+            <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+          </a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="row g-5">
+    <div class="col-md-3">
+        <div class="position-sticky" style="top: 2rem;">
+            <div class="p-4 mb-3 bg-body-tertiary rounded">
+                <h4 class="fst-italic">Table of content</h4>
+                <!-- <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p> -->
+                <!-- <h4 class="fst-italic">Archives</h4> -->
+                 <hr>
+                 <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                      故宫门票预约
+                    </button>
+                  </h2>
+                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                      <ul>
+                        <a href="#sub1_section1" class="list-group-item list-group-item-action">总述</a>
+                        <a href="#sub1_section2" class="list-group-item list-group-item-action">预约方式</a>
+                        <a href="#sub1_section3" class="list-group-item list-group-item-action">门票价格</a>
+                        <a href="#sub1_section4" class="list-group-item list-group-item-action">优惠政策</a>
+                        <a href="#sub1_section5" class="list-group-item list-group-item-action">检票流程</a>
+                        <a href="#sub1_section6" class="list-group-item list-group-item-action">退票及违约规定</a>
+                        <a href="#sub1_section7" class="list-group-item list-group-item-action">注意事项</a>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <h2 class="accordion-header" href="#sub2">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                      故宫旅游攻略
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                      <ul>
+                        <a href="#sub2_section1" class="list-group-item list-group-item-action">总述</a>
+                        <a href="#sub2_section2" class="list-group-item list-group-item-action">早年生活</a>
+                        <a href="#sub2_section3" class="list-group-item list-group-item-action">教育背景</a>
+                        <a href="#sub2_section4" class="list-group-item list-group-item-action">商业生涯</a>
+                        <a href="#sub2_section5" class="list-group-item list-group-item-action">政治生涯</a>
+                        <a href="#sub2_section6" class="list-group-item list-group-item-action">婚姻与家庭</a>
+                        <a href="#sub2_section7" class="list-group-item list-group-item-action">争议与法律问题</a>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <h2 class="accordion-header" href="#sub3">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                      故宫简介
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                      <ul>
+                        <a href="#sub2_section1" class="list-group-item list-group-item-action">总述</a>
+                        <a href="#sub2_section2" class="list-group-item list-group-item-action">早年生活</a>
+                        <a href="#sub2_section3" class="list-group-item list-group-item-action">教育背景</a>
+                        <a href="#sub2_section4" class="list-group-item list-group-item-action">商业生涯</a>
+                        <a href="#sub2_section5" class="list-group-item list-group-item-action">政治生涯</a>
+                        <a href="#sub2_section6" class="list-group-item list-group-item-action">婚姻与家庭</a>
+                        <a href="#sub2_section7" class="list-group-item list-group-item-action">争议与法律问题</a>
+                      </ul>
+                    </div>
+                  </div>
+                <!-- <ol class="list-unstyled mb-0">
+                <li><a href="#">March 2021</a></li>
+                <li><a href="#">February 2021</a></li>
+                <li><a href="#">January 2021</a></li>
+                <li><a href="#">December 2020</a></li>
+                <li><a href="#">November 2020</a></li>
+                <li><a href="#">October 2020</a></li>
+                <li><a href="#">September 2020</a></li>
+                <li><a href="#">August 2020</a></li>
+                <li><a href="#">July 2020</a></li>
+                <li><a href="#">June 2020</a></li>
+                <li><a href="#">May 2020</a></li>
+                <li><a href="#">April 2020</a></li>
+                </ol> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+      <!-- <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        From the Firehose
+      </h3> -->
+
+      <article class="blog-post">
+        <h2 class="display-5 link-body-emphasis mb-1">故宫门票预约</h2>
+        <!-- <p></p> -->
+        <p class="blog-post-meta">Jul 17, 2024 by <a href="#">@sasd-adv</a></p>
+            
+            <div class="col-md-12" id="sub1_section1">
+                <h3 class="text-body-emphasis">总述 </h3>
+                <ul class="fs-5 fst-normal">
+                    <li>预约方式：可以通过故宫博物院官方网站、微信小程序或现场预约。
+                      <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="特朗普竞选集会现场发生枪击事件-新华网"><a href="http://www.xinhuanet.com/20240714/dafbf64dfe964708962a50aa61fc07bd/c.html" style="text-decoration: none; color:black;" >1</a></div>
+                      <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="在美国的动荡时刻,特朗普遇刺搅动选战-纽约时报中文网"><a href="https://cn.nytimes.com/usa/20240715/trump-assassination-attempt-wounded/" style="text-decoration: none; color:black;">2</a></div>
+                      <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="被定性为暗杀未遂!特朗普宾州竞选集会演说遇袭,谁是幕后凶手？-第一财经"><a href="https://m.yicai.com/news/102190578.html" style="text-decoration: none; color:black;">3</a></div>
+                      <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="特朗普在集会枪击后匆忙下台,竞选团队称他“状况良好”-华尔街日报"><a href="https://cn.wsj.com/articles/trump-taken-off-stage-after-apparent-shots-fired-at-rally-28b685a9" style="text-decoration: none; color:black;">4</a></div>
+                      <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="特朗普枪击案嫌疑人被击毙,集会现场有参与者中枪身亡-央视新闻"><a href="https://content-static.cctvnews.cctv.com/snow-book/index.html?item_id=12920113857281205865" style="text-decoration: none; color:black;">5</a></div>
+                    </li>
+                    <li>提前预约：门票最早可于参观7日前20:00开始预订。
+                      <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="7·13美国总统选举枪击事件-百科"><a href="https://baike.baidu.com/item/7%C2%B713%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F%E9%80%89%E4%B8%BE%E6%9E%AA%E5%87%BB%E4%BA%8B%E4%BB%B6/64649663" style="text-decoration: none; color:black;">6</a></div>
+                    </li>
+                    <li>实名制：所有观众需实名制预约，使用身份证或其他有效证件。
+                      <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="被定性为暗杀未遂!特朗普宾州竞选集会演说遇袭,谁是幕后凶手？-第一财经"><a href="https://m.yicai.com/news/102190578.html" style="text-decoration: none; color:black;">7</a></div>
+                    </li>
+                    <li>门票价格：旺季（4月1日至10月31日）60元/人，淡季（11月1日至次年3月31日）40元/人。
+                    </li>
+                    <li>优惠政策：18岁以下免费，60岁以上半价，学生票20元/人。
+                      <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="7·13美国总统选举枪击事件-百科"><a href="https://baike.baidu.com/item/7%C2%B713%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F%E9%80%89%E4%B8%BE%E6%9E%AA%E5%87%BB%E4%BA%8B%E4%BB%B6/64649663" style="text-decoration: none; color:black;">6</a></div>
+                    </li>
+                    <li>检票：需持预约时使用的有效证件从午门（故宫南门）检票入院。
+                      <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="7·13美国总统选举枪击事件-百科"><a href="https://baike.baidu.com/item/7%C2%B713%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F%E9%80%89%E4%B8%BE%E6%9E%AA%E5%87%BB%E4%BA%8B%E4%BB%B6/64649663" style="text-decoration: none; color:black;">6</a></div>
+                    </li>
+                    <li>退票政策：未使用的预售票可于参观前一日24:00前退票，参观当日20:00前退票计为1次爽约。</li>
+                </ul>
+                <!-- <br style="line-height: 1px" /> -->
+                <img class="img-fluid" src="https://www.dpm.org.cn/Uploads/Picture/2018/06/29/s5b35a6fe42cbf.jpg" width="100%">
+                <br>
+                <br>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-secondary fs-7 fst-normal">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source1.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source2.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        5 SOURCES
+                      </button>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                            <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                            <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                          </svg>
+                      </span>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                          </svg>
+                      </span>
+                </div>
+                <br>
+                <br>
+            </div>
+
+
+            <div class="col-md-12" id="sub1_section2">
+                <h3 class="text-body-emphasis">预约方式</h3>
+                <!-- <img class="img-fluid" src="https://sspark.ai/cfimages?u1=qn2g7feKLvOrxHZM9sj%2FWJ07XVRMBIpNDkdt518YzQkM1W1XwwYHoNKR%2BNNtEfD6ORfVT5UoRuYpTGKAR8foAjhu60%2FUi31YEE19jrUq0ZiZ0RnS4fRnDU4%2Fp%2Bp1v5zk5rxJb%2B4Gqg%3D%3D&amp;u2=z1jGAZoBM7W3qhJ%2F&amp;width=1024"> -->
+                <ul class="fs-5 fst-normal">
+                    <li>官方网站预约：通过故宫博物院官方网站进行预约，选择参观日期、时间段、购票数量等信息。</li>
+                    <li>微信小程序预约：在微信中搜索“故宫博物院观众服务”小程序，进行实名注册和登录后预约。</li>
+                    <li>现场预约：在故宫博物院门口的售票处进行现场预约，但可能需要排队等待。<div class="circle-number" data-bs-toggle="tooltip" data-bs-title="7·13美国总统选举枪击事件-百科"><a href="https://baike.baidu.com/item/7%C2%B713%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F%E9%80%89%E4%B8%BE%E6%9E%AA%E5%87%BB%E4%BA%8B%E4%BB%B6/64649663" style="text-decoration: none; color:black;">6</a></div></li>
+                </ul>
+
+                <div class="my-3 p-3 bg-body rounded shadow-sm">
+                  <h6 class="border-bottom pb-2 mb-0">官网结果</h6>
+                  <div class="d-flex text-body-secondary pt-3" onclick="window.open('https://www.dpm.org.cn/')">
+                    <!-- <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg> -->
+                    <span class="badge rounded-pill text-bg-light">
+                      <img src="./docs/5.3/assets/img/favicons/gugong.ico" width="30px"></img>
+                    </span>
+                    <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                      <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">故宫博物院</strong>
+                        <span class="badge text-bg-success" >官网</span>
+                      </div>
+                      <span class="d-block">https://www.dpm.org.cn</span>
+                    </div>
+                  </div>
+                  <div class="d-flex text-body-secondary pt-3" onclick="window.open('https://ticket.dpm.org.cn/')">
+                    <!-- <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" ></rect><text x="50%" y="50%" opacity="0.1" dy=".3em">32x32</text></svg>
+                    <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em" opacity="0.1">32x32</text></svg> -->
+                    <div class="bd-placeholder-img flex-shrink-0 me-2 rounded" style="width: 32px; height: 32px; background-color: #dee2e600;"></div>
+                    <div class="bd-placeholder-img flex-shrink-0 me-2 rounded" style="width: 32px; height: 32px; background-color: #dee2e600;"></div>
+                    <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                      <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">在线选票</strong>
+                      </div>
+                      <!-- <span class="d-block">@username</span> -->
+                    </div>
+                  </div>
+                  
+                  <!-- <small class="d-block text-end mt-3">
+                    <a href="#">All suggestions</a>
+                  </small> -->
+                </div>
+
+
+              <h6>精选笔记：</h6>
+              <div class="d-flex flex-row flex-nowrap overflow-auto">
+                   <div class="card card-block mx-2" style="min-width: 200px;" >
+                    <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E9%A2%84%E7%BA%A6&pd=note">
+                      <img src="./docs/5.3/assets/img/media/case2/case1_0" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                    </a>
+                   </div>
+                   <div class="card card-block mx-2" style="min-width: 200px;">
+                    <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E9%A2%84%E7%BA%A6&pd=note">
+                    <img src="./docs/5.3/assets/img/media/case2/case1_1" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                    </div> 
+                    <div class="card card-block mx-2" style="min-width: 200px;">
+                        <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E9%A2%84%E7%BA%A6&pd=note">
+                        <img src="./docs/5.3/assets/img/media/case2/case1_2" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                     </div>  
+                     <div class="card card-block mx-2" style="min-width: 200px;">
+                        <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E9%A2%84%E7%BA%A6&pd=note">
+                        <img src="./docs/5.3/assets/img/media/case2/case1_3" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                     </div>
+                     <div class="card card-block mx-2" style="min-width: 200px;">
+                        <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E9%A2%84%E7%BA%A6&pd=note">
+                        <img src="./docs/5.3/assets/img/media/case2/case1_4" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                     </div>           
+                </div>
+                <br/>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-secondary fs-7 fst-normal">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source1.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source2.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        5 SOURCES
+                      </button>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                            <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                            <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                          </svg>
+                      </span>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                          </svg>
+                      </span>
+                </div>
+                <br>
+                <br>
+            </div>
+
+
+            <div class="col-md-12" id="sub1_section3">
+                <h3 class="text-body-emphasis">枪手信息</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>年龄: 20岁</li>
+                    <li>枪支来源: 其父亲合法购买
+                        <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="7·13美国总统选举枪击事件-百科"><a href="https://baike.baidu.com/item/7%C2%B713%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F%E9%80%89%E4%B8%BE%E6%9E%AA%E5%87%BB%E4%BA%8B%E4%BB%B6/64649663" style="text-decoration: none; color:black;">6</a></div>
+                    </li>
+                    <li>车内发现: 爆炸装置</li>
+                    <li>行凶时穿着: 引发关注</li>
+                </ul>
+
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                      </div>
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img src="https://sspark.ai/cfimages?u1=U69OiBJ%2Fg5SNcN%2F%2FX%2F3C3YwtorMoTzs4UE6b86eri%2B9GbqBVl24bnnR%2BK%2Bish3qu0uxqIL7TIV51rSC1dGr4Pw%2BndythGbyJ83PWNz0YtKaGTVuCa1c8WYiiC6t%2B6QGDOU8JCVkBi1R0gocVfMKqPshtMP7rx0gaNkkORWdFUIo0zxDKBrwMDMWCt4MTO%2BC7cx9K0clkqtXZT8gPd9LAfATf9ISKqMvo41qs%2Fw%3D%3D&amp;u2=zkq8slAXLsTrGRZR&amp;width=1024" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="https://sspark.ai/cfimages?u1=tgxipD2ixHCvwGPo0vMVXAdirAWuNwhjznztAMUJgXPqKxsORruGE3tCi6x4dbyM9YkWQ%2FplPCJEq9VYx%2BwksTRuNHvtF9n86eKl73yq%2BYUjhnpDzGzf2XK0rnvsEILE6bLw2w%3D%3D&amp;u2=8XERnJ72k89H0V4s&amp;width=1024" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="https://sspark.ai/cfimages?u1=dWFPCXcaA5sLDXqEFT8g6LupjqVJdtxuI4DKxlpuN2Ib%2BXFlqy6z%2F5ydNBYsc%2FXpulZAHDEAVYkvaafTogHwH0WHS9hdEBC%2B%2Bu%2BCw3uf1aeRWCyWLhlDfw6NYaQuTfZam8ra%2BngS34flSVZJvGk2dDanlXICBDUxZ6GcscPZY1mPps%2FkLb%2B2Jdz94Jv07fs%3D&amp;u2=9gfrf9J3uKSYLFxe&amp;width=1024" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="https://sspark.ai/cfimages?u1=oM%2F9v2nuV%2BaFt4RJOEilTJN00XlA%2FI7YTbYFvZ4NnA0eNXKIzGS%2Bx5SLjsReTL1d04%2FkkP3SBL%2B53lPAkU0FFI39QYBu675z8jfTc3zZaheqA9PCj3OCkNU%2F8tDvyoO9LxSz%2FTzBwt%2BDqM54FVoW6Y6ejvSgMtRQS4wMoJIzeIuvRMRpEB7SwtzNqWpiVutY%2F6FWqpKTwBhbjPFEJ49KRNQWWjci3GIfNFizI1b0I32AjFHBai%2BsSOGS0fDjWvD9mbX4SvF9djH9ItoJ0w%3D%3D&amp;u2=DSklfWHLnFlpjinb&amp;width=1024" class="d-block w-100" alt="...">
+                        </div>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                  </div>
+                  <br>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-secondary fs-7 fst-normal">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source1.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source2.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        5 SOURCES
+                      </button>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                            <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                            <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                          </svg>
+                      </span>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                          </svg>
+                      </span>
+                </div>
+                <br><br>
+            </div>
+
+            <div class="col-md-12" id="sub1_section4">
+                <h3 class="text-body-emphasis">袭击细节</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>距离: 枪手在距离特朗普约180米处开枪
+                        <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="7·13美国总统选举枪击事件-百科"><a href="https://baike.baidu.com/item/7%C2%B713%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F%E9%80%89%E4%B8%BE%E6%9E%AA%E5%87%BB%E4%BA%8B%E4%BB%B6/64649663" style="text-decoration: none; color:black;">6</a></div>
+                    </li>
+                    <li>爆炸装置: 车内发现</li>
+                    <li>袭击时间: 竞选集会期间</li>
+                </ul>
+                <div class="d-flex flex-row flex-nowrap overflow-auto">
+                    <div class="card card-block mx-2" style="min-width: 200px;" >
+                     <a href="https://www.douyin.com/search/%E7%89%B9%E6%9C%97%E6%99%AE%E8%A2%AD%E5%87%BB%E7%BB%86%E8%8A%82?aid=366b89b2-ec31-43ad-9ba5-b5fd3542036d&aweme_id=7376210576118238527&enter_from=discover&gid=7374331638630599990&modal_id=7392134669829000474&source=normal_search">
+                       <img src="./docs/5.3/assets/img/media/case1/case3_1" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                     </a>
+                    </div>
+                    <div class="card card-block mx-2" style="min-width: 200px;">
+                     <a href="https://www.douyin.com/search/%E7%89%B9%E6%9C%97%E6%99%AE%E8%A2%AD%E5%87%BB%E7%BB%86%E8%8A%82?aid=366b89b2-ec31-43ad-9ba5-b5fd3542036d&aweme_id=7376210576118238527&enter_from=discover&gid=7374331638630599990&modal_id=7392134669829000474&source=normal_search">
+                     <img src="./docs/5.3/assets/img/media/case1/case3_2" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                     </div> 
+                     <div class="card card-block mx-2" style="min-width: 200px;">
+                         <a href="https://www.douyin.com/search/%E7%89%B9%E6%9C%97%E6%99%AE%E8%A2%AD%E5%87%BB%E7%BB%86%E8%8A%82?aid=366b89b2-ec31-43ad-9ba5-b5fd3542036d&aweme_id=7376210576118238527&enter_from=discover&gid=7374331638630599990&modal_id=7392134669829000474&source=normal_search">
+                         <img src="./docs/5.3/assets/img/media/case1/case3_3" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                      </div>  
+                      <div class="card card-block mx-2" style="min-width: 200px;">
+                         <a href="https://www.douyin.com/search/%E7%89%B9%E6%9C%97%E6%99%AE%E8%A2%AD%E5%87%BB%E7%BB%86%E8%8A%82?aid=366b89b2-ec31-43ad-9ba5-b5fd3542036d&aweme_id=7376210576118238527&enter_from=discover&gid=7374331638630599990&modal_id=7392134669829000474&source=normal_search">
+                         <img src="./docs/5.3/assets/img/media/case1/case3_4" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                      </div>
+                      <div class="card card-block mx-2" style="min-width: 200px;">
+                         <a href="https://www.douyin.com/search/%E7%89%B9%E6%9C%97%E6%99%AE%E8%A2%AD%E5%87%BB%E7%BB%86%E8%8A%82?aid=366b89b2-ec31-43ad-9ba5-b5fd3542036d&aweme_id=7376210576118238527&enter_from=discover&gid=7374331638630599990&modal_id=7392134669829000474&source=normal_search">
+                         <img src="./docs/5.3/assets/img/media/case1/case3_5" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                      </div>           
+                 </div>
+                <br>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-secondary fs-7 fst-normal">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source1.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source2.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        5 SOURCES
+                      </button>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                            <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                            <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                          </svg>
+                      </span>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                          </svg>
+                      </span>
+                </div>
+                <br><br>
+            </div>
+
+            <div class="col-md-12" id="sub1_section5">
+                <h3 class="text-body-emphasis">特朗普状态</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>受伤情况: 右耳有血迹
+                        <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="7·13美国总统选举枪击事件-百科"><a href="https://baike.baidu.com/item/7%C2%B713%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F%E9%80%89%E4%B8%BE%E6%9E%AA%E5%87%BB%E4%BA%8B%E4%BB%B6/64649663" style="text-decoration: none; color:black;">6</a></div>
+                    </li>
+                    <li>紧急疏散: 听到爆炸声后被紧急疏散</li>
+                    <li>提名为2024年大选的党内总统候选: 右耳缠绷带首次亮相</li>
+                </ul>
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      </div>
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img src="https://imgcdn.yicai.com/vms-new/2024/07/35e153d2-e22a-4065-85f1-59a592a15d64.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="https://imgcdn.yicai.com/vms-new/2024/07/35e153d2-e22a-4065-85f1-59a592a15d64.png" class="d-block w-100" alt="...">
+                        </div>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                  </div>
+                <br>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-secondary fs-7 fst-normal">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source1.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source2.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        5 SOURCES
+                      </button>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                            <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                            <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                          </svg>
+                      </span>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                          </svg>
+                      </span>
+                </div>
+                <br><br>
+            </div>
+
+            <div class="col-md-12" id="sub1_section6">
+                <h3 class="text-body-emphasis">拜登回应</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>讲话内容: 敦促民众通过投票箱而非暴力解决分歧</li>
+                    <li>讲话时间: 特朗普遇刺后</li>
+                    <li>讲话目的: 降温社会情绪，防止暴力正常化
+                        <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="7·13美国总统选举枪击事件-百科"><a href="https://baike.baidu.com/item/7%C2%B713%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F%E9%80%89%E4%B8%BE%E6%9E%AA%E5%87%BB%E4%BA%8B%E4%BB%B6/64649663" style="text-decoration: none; color:black;">6</a></div>
+                    </li>
+                </ul>
+                <!-- <iframe width="100%" src="https://www.bilibili.com/video/BV1tE4m1R7Hm/" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->
+                <div class="ratio ratio-16x9">
+                <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1256238527&bvid=BV1tE4m1R7Hm&cid=1615730665&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+            </div>
+                <br>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-secondary fs-7 fst-normal">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source1.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source2.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        5 SOURCES
+                      </button>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                            <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                            <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                          </svg>
+                      </span>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                          </svg>
+                      </span>
+                </div>
+                <br><br>
+            </div>
+
+            <div class="col-md-12" id="sub1_section7">
+                <h3 class="text-body-emphasis">FBI调查</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>嫌疑人名字: FBI公布</li>
+                    <li>调查进展: 加紧寻找袭击动机
+                        <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="7·13美国总统选举枪击事件-百科"><a href="https://baike.baidu.com/item/7%C2%B713%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F%E9%80%89%E4%B8%BE%E6%9E%AA%E5%87%BB%E4%BA%8B%E4%BB%B6/64649663" style="text-decoration: none; color:black;">6</a></div>
+                    </li>
+                    <li>执法机构: 多个执法机构参与调查</li>
+                    <li>弹道分析：弹道分析显示特朗普这下无意扭头极限躲过致命子弹，分析显示95%概率当场爆头，4.5%概率打成植物人，而现实中轻伤的概率只有0.5%</li>
+                </ul>
+                <h6>FBI分析：</h6>
+              <div class="d-flex flex-row flex-nowrap overflow-auto">
+                   <div class="card card-block mx-2" style="min-width: 200px;" >
+                    <a href="https://www.douyin.com/search/0.5%25%E6%A6%82%E7%8E%87%E8%BD%BB%E4%BC%A4%E3%80%82?aid=d33012a8-a33d-4b31-bbf7-27ae21b20170&enter_from=recommend&modal_id=7392533971701075254&source=normal_search">
+                      <img src="./docs/5.3/assets/img/media/case1/case2_1" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                    </a>
+                   </div>
+                   <div class="card card-block mx-2" style="min-width: 200px;">
+                    <a href="https://www.douyin.com/search/0.5%25%E6%A6%82%E7%8E%87%E8%BD%BB%E4%BC%A4%E3%80%82?aid=d33012a8-a33d-4b31-bbf7-27ae21b20170&enter_from=recommend&modal_id=7392533971701075254&source=normal_search">
+                    <img src="./docs/5.3/assets/img/media/case1/case2_2" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                    </div> 
+                    <div class="card card-block mx-2" style="min-width: 200px;">
+                        <a href="https://www.douyin.com/search/0.5%25%E6%A6%82%E7%8E%87%E8%BD%BB%E4%BC%A4%E3%80%82?aid=d33012a8-a33d-4b31-bbf7-27ae21b20170&enter_from=recommend&modal_id=7392533971701075254&source=normal_search">
+                        <img src="./docs/5.3/assets/img/media/case1/case2_3" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                     </div>  
+                     <div class="card card-block mx-2" style="min-width: 200px;">
+                        <a href="https://www.douyin.com/search/0.5%25%E6%A6%82%E7%8E%87%E8%BD%BB%E4%BC%A4%E3%80%82?aid=d33012a8-a33d-4b31-bbf7-27ae21b20170&enter_from=recommend&modal_id=7392533971701075254&source=normal_search1">
+                        <img src="./docs/5.3/assets/img/media/case1/case2_4" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                     </div>
+                     <div class="card card-block mx-2" style="min-width: 200px;">
+                        <a href="https://www.douyin.com/search/0.5%25%E6%A6%82%E7%8E%87%E8%BD%BB%E4%BC%A4%E3%80%82?aid=d33012a8-a33d-4b31-bbf7-27ae21b20170&enter_from=recommend&modal_id=7392533971701075254&source=normal_search">
+                        <img src="./docs/5.3/assets/img/media/case1/case2_5" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                     </div>           
+                </div>
+                <br>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-secondary fs-7 fst-normal">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source1.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source2.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        5 SOURCES
+                      </button>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                            <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                            <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                          </svg>
+                      </span>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                          </svg>
+                      </span>
+                </div>
+                <br><br>
+            </div>
+
+            <div class="col-md-12" id="sub1_section8">
+                <h3 class="text-body-emphasis">选举影响</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>胜选概率: 上升至71%</li>
+                    <li>社会反应: 马斯克等大佬表态</li>
+                    <li>选战影响: 事件搅动选战
+                        <div class="circle-number" data-bs-toggle="tooltip" data-bs-title="7·13美国总统选举枪击事件-百科"><a href="https://baike.baidu.com/item/7%C2%B713%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F%E9%80%89%E4%B8%BE%E6%9E%AA%E5%87%BB%E4%BA%8B%E4%BB%B6/64649663" style="text-decoration: none; color:black;">6</a></div>
+                    </li>
+                </ul>
+                <div class="d-flex flex-row flex-nowrap overflow-auto">
+                    <div class="card card-block mx-2" style="min-width: 200px;" >
+                     <a href="https://www.douyin.com/search/%E7%89%B9%E6%9C%97%E6%99%AE%E9%80%89%E4%B8%BE%E5%BD%B1%E5%93%8D?aid=b390b028-2625-48f6-a78f-745c648e5efb&type=general">
+                       <img src="./docs/5.3/assets/img/media/case1/case4_1" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                     </a>
+                    </div>
+                    <div class="card card-block mx-2" style="min-width: 200px;">
+                     <a href="https://www.douyin.com/search/%E7%89%B9%E6%9C%97%E6%99%AE%E9%80%89%E4%B8%BE%E5%BD%B1%E5%93%8D?aid=b390b028-2625-48f6-a78f-745c648e5efb&type=general">
+                     <img src="./docs/5.3/assets/img/media/case1/case4_2" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                     </div> 
+                     <div class="card card-block mx-2" style="min-width: 200px;">
+                         <a href="https://www.douyin.com/search/%E7%89%B9%E6%9C%97%E6%99%AE%E9%80%89%E4%B8%BE%E5%BD%B1%E5%93%8D?aid=b390b028-2625-48f6-a78f-745c648e5efb&type=general">
+                         <img src="./docs/5.3/assets/img/media/case1/case4_3" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                      </div>  
+                      <div class="card card-block mx-2" style="min-width: 200px;">
+                         <a href="https://www.douyin.com/search/%E7%89%B9%E6%9C%97%E6%99%AE%E9%80%89%E4%B8%BE%E5%BD%B1%E5%93%8D?aid=b390b028-2625-48f6-a78f-745c648e5efb&type=general">
+                         <img src="./docs/5.3/assets/img/media/case1/case4_4" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                      </div>
+                      <div class="card card-block mx-2" style="min-width: 200px;">
+                         <a href="https://www.douyin.com/search/%E7%89%B9%E6%9C%97%E6%99%AE%E9%80%89%E4%B8%BE%E5%BD%B1%E5%93%8D?aid=b390b028-2625-48f6-a78f-745c648e5efb&type=general">
+                         <img src="./docs/5.3/assets/img/media/case1/case4_5" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                      </div>           
+                 </div>
+                <br>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-secondary fs-7 fst-normal">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source1.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source2.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                        5 SOURCES
+                      </button>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                            <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                            <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                          </svg>
+                      </span>
+                      &thinsp;&thinsp;
+                      <span class="badge rounded-pill text-bg-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                          </svg>
+                      </span>
+                </div>
+                <br><br>
+            </div>
+
+      </article>
+
+      <article class="blog-post" id="sub2">
+        <h2 class="display-5 link-body-emphasis mb-1" >特朗普简介（详细布局见上一部分）</h2>
+        <p class="blog-post-meta">Jul 16, 2024 by <a href="#">@sasd-adv</a></p>
+            
+            
+            <div class="col-md-12" id="sub2_section1">
+                <h3 class="text-body-emphasis">总述</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>全名: 唐纳德·约翰·特朗普（Donald John Trump）</li>
+                    <li>出生日期: 1946年6月14日</li>
+                    <li>出生地: 美国纽约市皇后区</li>
+                    <li>政治身份: 美国第45任总统（2017年1月20日—2021年1月20日）</li>
+                    <li>政党: 共和党</li>
+                    <li>职业: 政治家、企业家、媒体名人</li>
+                    <li>净资产: 75亿美元（2024年）</li>
+                    <li>婚姻状况: 三任妻子，五个子女</li>
+                    <li>教育背景: 宾夕法尼亚大学沃顿商学院经济金融学士</li>
+                </ul>
+            </div>
+
+            <div class="col-md-12" id="sub2_section2">
+                <h3 class="text-body-emphasis">早年生活</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>出生: 1946年6月14日，纽约市皇后区</li>
+                    <li>家庭背景: 德国移民后裔，祖父弗雷德里克·特朗普在1885年移民到美国</li>
+                    <li>父母: 父亲弗雷德·特朗普是房地产开发商，母亲玛丽·安妮·麦克劳德·特朗普是苏格兰移民</li>
+                    <li>童年: 在纽约皇后区牙买加别墅长大</li>
+                    <li>早期教育: 就读于纽约森林小丘的学校</li>
+                </ul>
+            </div>
+
+            <div class="col-md-12" id="sub2_section3">
+                <h3 class="text-body-emphasis">教育背景</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>中学: 纽约军事学院</li>
+                    <li>大学: 福坦莫大学就读两年后转至宾夕法尼亚大学沃顿商学院</li>
+                    <li>学位: 1968年取得经济金融学士学位</li>
+                    <li>影响: 在沃顿商学院期间，特朗普决定进入房地产行业</li>
+                </ul>
+            </div>
+
+            <div class="col-md-12" id="sub2_section4">
+                <h3 class="text-body-emphasis">商业生涯</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>早期事业: 加入父亲的房地产公司</li>
+                    <li>主要成就: 成为特朗普集团董事长兼总裁</li>
+                    <li>业务范围: 经营房地产、赌场和酒店</li>
+                    <li>媒体事业: 主持NBC电视真人秀《飞黄腾达》</li>
+                    <li>财富: 2024年净资产为75亿美元</li>
+                </ul>
+            </div>
+            
+            <div class="col-md-12" id="sub2_section5">
+                <h3 class="text-body-emphasis">政治生涯</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>首次竞选: 1987年首次表达竞选公职的兴趣</li>
+                    <li>2016年总统选举: 以共和党候选人身份赢得选举，击败希拉里·克林顿</li>
+                    <li>总统任期: 2017年1月20日—2021年1月20日</li>
+                    <li>政策: 以“特朗普主义”著称，包含右翼民粹主义、贸易保护主义和民族主义</li>
+                    <li>弹劾: 成为美国史上唯一一位受到两次提案弹劾的总统</li>
+                </ul>
+            </div>
+
+            <div class="col-md-12" id="sub2_section6">
+                <h3 class="text-body-emphasis">婚姻与家庭</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>第一任妻子: 伊万娜·特朗普，育有三名子女</li>
+                    <li>第二任妻子: 玛拉·梅普尔斯，育有一名女儿</li>
+                    <li>第三任妻子: 梅拉尼娅·特朗普，育有一名儿子</li>
+                    <li>子女: 小唐纳德、伊万卡、埃里克、蒂芙尼、巴伦</li>
+                    <li>孙子女: 十个孙子女</li>
+                </ul>
+            </div>
+            
+            <div class="col-md-12" id="sub2_section7">
+                <h3 class="text-body-emphasis">争议与法律问题</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>争议言论: 涉及非法移民、性别歧视、种族歧视、仇外及反伊斯兰等言论</li>
+                    <li>弹劾: 两次弹劾，分别因滥用职权和煽动暴力</li>
+                    <li>法律问题: 2024年在“封口费”刑事案中被控34项罪名全部成立</li>
+                    <li>特别调查: 穆勒调查未找到足够证据指控其与俄罗斯共谋犯罪或协调</li>
+                </ul>
+            </div>
+
+
+      </article>
+
+      <!-- <nav class="blog-pagination" aria-label="Pagination">
+        <a class="btn btn-outline-primary rounded-pill" href="#">Older</a>
+        <a class="btn btn-outline-secondary rounded-pill disabled" aria-disabled="true">Newer</a>
+      </nav> -->
+
+    </div>
+  </div>
+
+  <div class="text-center fixed-bottom">
+    <span class="badge rounded-pill text-bg-primary fs-6">Ask Anything
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+            <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/>
+          </svg>
+    </span>
+    <br><br>
+  </div>
+    
+</main>
+
+<footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+  <p>Agentpedia built for <a href="https://baidu.com/">Baidu</a> by <a href="#">@sasd-adv</a>.</p>
+  <p class="mb-0">
+    <a href="#">Back to top</a>
+  </p>
+</footer><script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    });
+    
+  </script>
+    </body>
+</html>
