@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <script src="./docs/5.3/assets/js/bootstrap.bundle.js"></script>
+    <script src="./docs/5.3/assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Agentpedia</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/starter-template/">
+
+        
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="./docs/5.3/assets/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="./docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="./docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="./docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="./docs/5.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="./docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="./docs/5.3/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#712cf9">
+
+
+    <style>
+         .custom-popover {
+            --bs-popover-max-width: 200px;
+            --bs-popover-border-color: #712cf8;
+            --bs-popover-header-bg: #712cf8;
+            --bs-popover-header-color: var(--bs-white);
+            --bs-popover-body-padding-x: 1rem;
+            --bs-popover-body-padding-y: .5rem;
+        }
+      .circle-number {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        border-radius: 50%;
+        background-color: #f0f0f0;
+        text-align: center;
+        font-size: 14px;
+        /* font-weight: bold; */
+        margin: 2px;
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+
+    
+    </style>
+
+<script>
+  window.addEventListener('load', function () {
+      let btnTop = document.getElementById("btn-top");
+      // display the button when user scrolls more than 20px
+      window.onscroll = function () {
+          if (
+              document.body.scrollTop > 20 || document.documentElement.scrollTop > 20
+          ) {
+              btnTop.style.display = "block";
+          } else {
+              btnTop.style.display = "none";
+          }
+      };
+      btnTop.addEventListener("click", function () {
+        let headerElement = document.getElementById("header");
+        let introElement = document.getElementById("intro");
+        if (headerElement) {
+            // 计算表格顶部到视口顶部的距离
+            let tableTop = headerElement.offsetHeight + introElement.offsetHeight;
+            // 滚动到表格位置，确保表格在视口最上方
+            window.scrollTo({
+                top: tableTop,
+                behavior: 'smooth' // 平滑滚动效果
+            });
+        }
+    });
+  });
+</script>
+
+
+    
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="./docs/5.3/assets/css/blog.css" rel="stylesheet">
+  </head>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 start-0 mb-3 ms-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 d-flex align-items-center"
+              id="btn-top"">
+        <!-- <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg> -->
+         <span>目录</span>
+      </button>
+    </div>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
+  </symbol>
+  <symbol id="cart" viewBox="0 0 16 16">
+    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </symbol>
+  <symbol id="chevron-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+  </symbol>
+</svg>
+
+
+
+<div class="container">
+  <!-- <header class="border-bottom lh-1 py-3 align-items-center text-center" >
+    <div class="row flex-nowrap justify-content-center align-items-center">
+      <div class="text-center">
+        <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-braces-asterisk" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C2.25 2 1.49 2.759 1.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6M14.886 7.9v.164c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456v-1.3c-1.114 0-1.49-.362-1.49-1.456V4.352C14.51 2.759 13.75 2 12.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6M7.5 11.5V9.207l-1.621 1.621-.707-.707L6.792 8.5H4.5v-1h2.293L5.172 5.879l.707-.707L7.5 6.792V4.5h1v2.293l1.621-1.621.707.707L9.208 7.5H11.5v1H9.207l1.621 1.621-.707.707L8.5 9.208V11.5z"/>
+              </svg>
+              &emsp;
+            <span class="fs-4">Agentpedia</span>
+        </a>
+      </div>
+    </div>
+  </header> -->
+  <a href="index.html" class="text-body-emphasis text-decoration-none">
+  <header class="border-bottom lh-1 py-3 d-flex justify-content-center text-center" id="header">
+    <div class="d-flex align-items-center text-body-emphasis text-decoration-none">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-braces-asterisk" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C2.25 2 1.49 2.759 1.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6M14.886 7.9v.164c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456v-1.3c-1.114 0-1.49-.362-1.49-1.456V4.352C14.51 2.759 13.75 2 12.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6M7.5 11.5V9.207l-1.621 1.621-.707-.707L6.792 8.5H4.5v-1h2.293L5.172 5.879l.707-.707L7.5 6.792V4.5h1v2.293l1.621-1.621.707.707L9.208 7.5H11.5v1H9.207l1.621 1.621-.707.707L8.5 9.208V11.5z"/>
+      </svg>
+      &thinsp;
+      <span class="fs-1">Agentpedia</span>
+    </div>
+  </header>
+  </a>
+
+</div>
+<br>
+
+
+<main class="container">
+  <div class="col-auto rounded text-body-emphasis bg-body-secondary" id="intro">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="col p-4 d-flex flex-column position-static">
+        <h1 class="display-4 fst-italic">Steam</h1>
+        <p class="card-text mb-auto">Steam是Valve推出的电子游戏数字分发平台。<span class="badge text-bg-info">89 sources
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-wechat" viewBox="0 0 12 12">
+            <path d="M11.176 14.429c-2.665 0-4.826-1.8-4.826-4.018 0-2.22 2.159-4.02 4.824-4.02S16 8.191 16 10.411c0 1.21-.65 2.301-1.666 3.036a.32.32 0 0 0-.12.366l.218.81a.6.6 0 0 1 .029.117.166.166 0 0 1-.162.162.2.2 0 0 1-.092-.03l-1.057-.61a.5.5 0 0 0-.256-.074.5.5 0 0 0-.142.021 5.7 5.7 0 0 1-1.576.22M9.064 9.542a.647.647 0 1 0 .557-1 .645.645 0 0 0-.646.647.6.6 0 0 0 .09.353Zm3.232.001a.646.646 0 1 0 .546-1 .645.645 0 0 0-.644.644.63.63 0 0 0 .098.356"/>
+            <path d="M0 6.826c0 1.455.781 2.765 2.001 3.656a.385.385 0 0 1 .143.439l-.161.6-.1.373a.5.5 0 0 0-.032.14.19.19 0 0 0 .193.193q.06 0 .111-.029l1.268-.733a.6.6 0 0 1 .308-.088q.088 0 .171.025a6.8 6.8 0 0 0 1.625.26 4.5 4.5 0 0 1-.177-1.251c0-2.936 2.785-5.02 5.824-5.02l.15.002C10.587 3.429 8.392 2 5.796 2 2.596 2 0 4.16 0 6.826m4.632-1.555a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0m3.875 0a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0"/>
+          </svg>
+        </span></p>
+        <!-- <div class="mb-1 text-body-secondary">Jul 16</div> -->
+        <hr>
+        <div class="d-flex text-body-secondary pt-20">
+            <img src="./docs/5.3/assets/img/favicons/my.jpeg" alt="" width="32" height="32" class="rounded-circle me-2">
+            <p class="pb-20 mb-0 small lh-sm">
+              <strong class="d-block text-gray-dark">@sasd-adv</strong>
+              Jul 25, 2024
+            </p>
+            
+          </div>
+      </div>
+      
+      <div class="col-auto d-none d-lg-block">
+        <img class="bd-placeholder-img" width="200" height="250" focusable="false" class="img-fluid" src="https://store.akamai.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016"></img>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row g-5">
+    <div class="col-md-3">
+        <div class="position-sticky" style="top: 2rem;">
+            <div class="p-4 mb-3 bg-body-tertiary rounded" >
+                <h4 class="fst-italic" >Table of content</h4>
+                <!-- <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p> -->
+                <!-- <h4 class="fst-italic">Archives</h4> -->
+                 <hr>
+                  <h2 class="accordion-header" href="#sub2">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                      Steam
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                      <ul>
+                        <a href="#sub2_section1" class="list-group-item list-group-item-action">Steam官网</a>
+                        <a href="#sub2_section2" class="list-group-item list-group-item-action">Steam下载与注册</a>
+                        <a href="#sub2_section3" class="list-group-item list-group-item-action">Steam功能与设置</a>
+                        <a href="#sub2_section4" class="list-group-item list-group-item-action">Steam交易与账户管理</a>
+                        <a href="#sub2_section5" class="list-group-item list-group-item-action">Steam游戏相关</a>
+                      </ul>
+                    </div>
+                  </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+      <!-- <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        From the Firehose
+      </h3> -->
+      <article class="blog-post" id="sub2">
+        <h2 class="display-5 link-body-emphasis mb-1" >Steam</h2>
+        <p class="blog-post-meta">Jul 16, 2024 by <a href="#">@sasd-adv</a></p>
+            
+            
+            <div class="col-md-12" id="sub2_section1">
+                <h3 class="text-body-emphasis">Steam官网</h3>
+                <p class="fs-5">Steam官网地址为store.steampowered.com👇。</p>
+                <ul class="fs-5 fst-normal">
+                  <li>盗版识别：请注意识别盗版，百度首条没有官网标记的为盗版，请注意。</li>
+                  </ul>
+                <div class="my-3 p-3 bg-body rounded shadow-sm">
+                  <h6 class="border-bottom pb-2 mb-0">官网结果</h6>
+                  <div class="d-flex text-body-secondary pt-3" onclick="window.open('https://store.steampowered.com/')">
+                    <!-- <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg> -->
+                    <span class="badge rounded-pill text-bg-light">
+                      <img src="https://th.bing.com/th?id=ODLS.22ef81b2-31a8-4ee6-930b-a3cd7d5d6c55&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2" width="30px"></img>
+                    </span>
+                    <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                      <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">steampowered</strong>
+                        <span class="badge text-bg-success" >官网</span>
+                      </div>
+                      <span class="d-block">https://store.steampowered.com/</span>
+                    </div>
+                  </div>
+                  <div class="d-flex text-body-secondary pt-3" onclick="window.open('https://store.steampowered.com/about/')">
+                    <div class="bd-placeholder-img flex-shrink-0 me-2 rounded" style="width: 32px; height: 32px; background-color: #dee2e600;"></div>
+                    <div class="bd-placeholder-img flex-shrink-0 me-2 rounded" style="width: 32px; height: 32px; background-color: #dee2e600;"></div>
+                    <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                      <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">安装steam</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <br><br>
+            </div>
+
+            <div class="col-md-12" id="sub2_section2">
+                <h3 class="text-body-emphasis">Steam下载与注册</h3>
+                <h4 class="text-body-emphasis">下载Steam客户端</h4>
+                <ul class="fs-5 fst-normal">
+                  <li>访问Steam官网: 在浏览器中访问https://store.steampowered.com/。</li>
+                  <li>点击“免费下载Steam”按钮: 位于页面右上角。</li>
+                  <li>点击“安装Steam”按钮: 下载Steam安装程序<div class="circle-number" data-bs-toggle="tooltip" data-bs-title="7·13美国总统选举枪击事件-百科"><a href="https://baike.baidu.com/item/7%C2%B713%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F%E9%80%89%E4%B8%BE%E6%9E%AA%E5%87%BB%E4%BA%8B%E4%BB%B6/64649663" style="text-decoration: none; color:black;">6</a></div></li>
+                  <li>保存安装程序: 将下载的安装程序保存到本地。</li>
+                </ul>
+                <img class="img-fluid" src="https://sspark.ai/cfimages?u1=vv4u7Cu2CFIFhKv9NxzhPvGr7HStc5w324h%2BKSI%2Fd75jvKRv0LApnbz2M687Ql6wNvG7%2Fu2tYbOeB6uPwIi%2Bipje9Eyzo6Uw&u2=9Elmo1Iz49%2BY8F2z&width=1024">
+
+
+                <br><br/>
+              <h4 class="text-body-emphasis">安装steam</h4>
+
+              <ul class="fs-5 fst-normal">
+                <li>运行安装程序: 双击下载的安装程序。</li>
+                <li>选择语言: 在安装向导页面选择“简体中文”或其他语言。</li>
+                <li>选择安装路径: 在文件资源管理器中选择安装路径，建议不要选择C盘。</li>
+                <li>完成安装: 安装完成后，程序会自动更新Steam。</li>
+            </ul>
+            <img class="img-fluid" src="https://sspark.ai/cfimages?u1=bAx%2B3xXD93VSrDXSDUPSw3t3vMpPvOGYfgUAyudcBc0cp5nZsvFU1jGf7g4kfgD1IKFjrNLFunli4VM823XiflBK%2F9PX88bE&u2=q4vb5ohc0jWCU0j2&width=1024">
+
+            <br><br/>
+            <h4 class="text-body-emphasis">注册steam</h4>
+
+            <ul class="fs-5 fst-normal">
+              <li>打开Steam官网: 访问https://store.steampowered.com/。</li>
+              <li>点击“登录”按钮: 位于页面右上角。</li>
+              <li>点击“继续”完成注册: 确保使用一个安全的密码，以保护你的帐户。</li>
+              <li>验证电子邮件: Steam将发送一封验证电子邮件到你的注册邮箱，点击其中的链接以验证你的账号。</li>
+          </ul>
+          <img class="img-fluid" src="https://sspark.ai/cfimages?u1=BP9t8Cf%2FhuwePzX%2BG6xjORLKLqS4aOq%2F4%2BcRzjzJmMS5OQyHTpHfOVNfR0t9K5K2rZrLPg8iPfQn7IW6Pc28Z0qGLY2EQsJ%2B&u2=8Q8VqlaUkLQdnQXk&width=1024">
+
+
+
+          
+
+            <h6>精选笔记：</h6>
+            <div class="d-flex flex-row flex-nowrap overflow-auto">
+                 <div class="card card-block mx-2" style="min-width: 200px;" >
+                  <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E5%BE%AE%E4%BF%A1%E8%B4%AD%E7%A5%A8&pd=note">
+                    <img src="./docs/5.3/assets/img/media/case2/case22_4" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                  </a>
+                 </div>
+                 <div class="card card-block mx-2" style="min-width: 200px;">
+                  <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E5%BE%AE%E4%BF%A1%E8%B4%AD%E7%A5%A8&pd=note">
+                  <img src="./docs/5.3/assets/img/media/case2/case22_3" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                  </div> 
+                  <div class="card card-block mx-2" style="min-width: 200px;">
+                    <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E5%BE%AE%E4%BF%A1%E8%B4%AD%E7%A5%A8&pd=note">
+                      <img src="./docs/5.3/assets/img/media/case2/case22_2" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                   </div>  
+                   <div class="card card-block mx-2" style="min-width: 200px;">
+                    <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E5%BE%AE%E4%BF%A1%E8%B4%AD%E7%A5%A8&pd=note">
+                      <img src="./docs/5.3/assets/img/media/case2/case22_1" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                   </div>
+                   <div class="card card-block mx-2" style="min-width: 200px;">
+                    <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E5%BE%AE%E4%BF%A1%E8%B4%AD%E7%A5%A8&pd=note">
+                      <img src="./docs/5.3/assets/img/media/case2/case22_0" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                   </div>           
+              </div>
+              <br/>
+              <div class="d-flex align-items-center">
+                  <button class="btn btn-outline-secondary fs-7 fst-normal">
+                      <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source1.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                      <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source2.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                      5 SOURCES
+                    </button>
+                    &thinsp;&thinsp;
+                    <span class="badge rounded-pill text-bg-light">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                          <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                          <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                        </svg>
+                    </span>
+                    &thinsp;&thinsp;
+                    <span class="badge rounded-pill text-bg-light">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                        </svg>
+                    </span>
+              </div>
+              <br>
+              <br>
+
+
+
+
+            </div>
+
+
+
+            <br><br/><br><br/><br><br/><br><br/><br><br/><br><br/><br><br/><br><br/><br><br/><br><br/><br><br/><br><br/><br><br/><br><br/><br><br/>
+
+            <div class="col-md-12" id="sub2_section3">
+                <h3 class="text-body-emphasis">🚶 故宫游玩路线</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>快速路线：午门-太和门-太和殿-中轴线，大约2小时</li>
+                    <li>常规路线：午门-太和门-太和殿-中轴线-东六宫-御花园-西六宫-钟表馆-珍宝馆-神武门</li>
+                    <li>深度路线：文华殿-文渊阁-箭亭-钟表馆-珍宝馆-钟粹宫-储秀宫-翊坤宫-永寿宫-太极殿-慈宁宫-慈宁宫花园-太和门-太和殿-中轴线</li>
+                </ul>
+
+                <h6>精选笔记：</h6>
+            <div class="d-flex flex-row flex-nowrap overflow-auto">
+                 <div class="card card-block mx-2" style="min-width: 200px;" >
+                  <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E8%B7%AF%E7%BA%BF&pd=note">
+                    <img src="./docs/5.3/assets/img/media/case2/case23_0" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                  </a>
+                 </div>
+                 <div class="card card-block mx-2" style="min-width: 200px;">
+                  <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E8%B7%AF%E7%BA%BF&pd=note">
+                  <img src="./docs/5.3/assets/img/media/case2/case23_1" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                  </div> 
+                  <div class="card card-block mx-2" style="min-width: 200px;">
+                    <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E8%B7%AF%E7%BA%BF&pd=note">
+                      <img src="./docs/5.3/assets/img/media/case2/case23_2" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                   </div>  
+                   <div class="card card-block mx-2" style="min-width: 200px;">
+                    <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E8%B7%AF%E7%BA%BF&pd=note">
+                      <img src="./docs/5.3/assets/img/media/case2/case23_3" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                   </div>
+                   <div class="card card-block mx-2" style="min-width: 200px;">
+                    <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E8%B7%AF%E7%BA%BF&pd=note">
+                      <img src="./docs/5.3/assets/img/media/case2/case23_4" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                   </div>           
+              </div>
+              <br/>
+              <div class="d-flex align-items-center">
+                  <button class="btn btn-outline-secondary fs-7 fst-normal">
+                      <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source1.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                      <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source2.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                      5 SOURCES
+                    </button>
+                    &thinsp;&thinsp;
+                    <span class="badge rounded-pill text-bg-light">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                          <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                          <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                        </svg>
+                    </span>
+                    &thinsp;&thinsp;
+                    <span class="badge rounded-pill text-bg-light">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                        </svg>
+                    </span>
+              </div>
+              <br>
+              <br>
+
+
+
+
+            </div>
+
+
+            <div class="col-md-12" id="sub2_section4">
+                <h3 class="text-body-emphasis">🐈 故宫宫猫</h3>
+                <ul class="fs-5 fst-normal">
+                  <li>活动地点：珍宝馆、景仁宫和文华殿。</li>
+                  <li>出没时间：宫猫在人少、阳光充足的地方活动。尤其是下午4点左右喂食时。</li>
+                  <li>性格特点：有的宫猫比较亲人，有的则相对高冷一些。</li>
+                  <li>喂食提示：故宫不鼓励大家带着猫粮去喂，因为宫猫每天的食量已经很大，再多吃可能会影响健康。如果你真的想为宫猫做些什么，可以与就近的工作人员商量，把准备好的猫粮给他们收着，让他们以后帮忙喂。</li>
+              </ul>
+
+              <h6>精选笔记：</h6>
+          <div class="d-flex flex-row flex-nowrap overflow-auto">
+               <div class="card card-block mx-2" style="min-width: 200px;" >
+                <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%AE%AB%E7%8C%AB&pd=note">
+                  <img src="./docs/5.3/assets/img/media/case2/case24_0" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                </a>
+               </div>
+               <div class="card card-block mx-2" style="min-width: 200px;">
+                <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%AE%AB%E7%8C%AB&pd=note">
+                <img src="./docs/5.3/assets/img/media/case2/case24_1" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                </div> 
+                <div class="card card-block mx-2" style="min-width: 200px;">
+                  <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%AE%AB%E7%8C%AB&pd=note">
+                    <img src="./docs/5.3/assets/img/media/case2/case24_2" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                 </div>  
+                 <div class="card card-block mx-2" style="min-width: 200px;">
+                  <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%AE%AB%E7%8C%AB&pd=note">
+                    <img src="./docs/5.3/assets/img/media/case2/case24_3" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                 </div>
+                 <div class="card card-block mx-2" style="min-width: 200px;">
+                  <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%AE%AB%E7%8C%AB&pd=note">
+                    <img src="./docs/5.3/assets/img/media/case2/case24_4" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                 </div>           
+            </div>
+            <br/>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-outline-secondary fs-7 fst-normal">
+                    <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source1.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                    <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source2.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                    5 SOURCES
+                  </button>
+                  &thinsp;&thinsp;
+                  <span class="badge rounded-pill text-bg-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                      </svg>
+                  </span>
+                  &thinsp;&thinsp;
+                  <span class="badge rounded-pill text-bg-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                      </svg>
+                  </span>
+            </div>
+            <br>
+            <br>
+
+
+
+
+            </div>
+            
+            <div class="col-md-12" id="sub2_section5">
+                <h3 class="text-body-emphasis">📚 盖章打卡</h3>
+                故宫盖章的攻略🔍如下：
+                <ul class="fs-5 fst-normal">
+                    <li>1️⃣午门文创店，可盖1枚。</li>
+                    <li>2️⃣文华殿，进门前先扫码登记，进去后右边小书店可盖3枚。</li>
+                    <li>3️⃣武英殿文创店有3枚印章，像玉玺超有份量。</li>
+                    <li>4️⃣冰窖书店，有3枚印章。</li>
+                    <li>5️⃣坤宁宫文创店，有3枚印章。</li>
+                    <li>6️⃣储秀宫西侧文创店，有3枚印章。</li>
+                    <li>7️⃣珍宝馆出口，有3枚印章。</li>
+                    <li>8️⃣神武门外故宫门窗店，有2枚。</li>
+                </ul>
+
+                <h6>精选笔记：</h6>
+          <div class="d-flex flex-row flex-nowrap overflow-auto">
+               <div class="card card-block mx-2" style="min-width: 200px;" >
+                <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%AE%AB%E7%8C%AB&pd=note">
+                  <img src="./docs/5.3/assets/img/media/case2/case24_0" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                </a>
+               </div>
+               <div class="card card-block mx-2" style="min-width: 200px;">
+                <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%AE%AB%E7%8C%AB&pd=note">
+                <img src="./docs/5.3/assets/img/media/case2/case24_1" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                </div> 
+                <div class="card card-block mx-2" style="min-width: 200px;">
+                  <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%AE%AB%E7%8C%AB&pd=note">
+                    <img src="./docs/5.3/assets/img/media/case2/case24_2" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                 </div>  
+                 <div class="card card-block mx-2" style="min-width: 200px;">
+                  <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%AE%AB%E7%8C%AB&pd=note">
+                    <img src="./docs/5.3/assets/img/media/case2/case24_3" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                 </div>
+                 <div class="card card-block mx-2" style="min-width: 200px;">
+                  <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E5%AE%AB%E7%8C%AB&pd=note">
+                    <img src="./docs/5.3/assets/img/media/case2/case24_4" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                 </div>           
+            </div>
+            <br/>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-outline-secondary fs-7 fst-normal">
+                    <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source1.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                    <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source2.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                    5 SOURCES
+                  </button>
+                  &thinsp;&thinsp;
+                  <span class="badge rounded-pill text-bg-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                      </svg>
+                  </span>
+                  &thinsp;&thinsp;
+                  <span class="badge rounded-pill text-bg-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                      </svg>
+                  </span>
+            </div>
+            <br>
+            <br>
+
+
+            </div>
+
+            <div class="col-md-12" id="sub2_section6">
+                <h3 class="text-body-emphasis">📷 拍照</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>利用故宫建筑的特色：红墙、飞檐，都是拍照的好背</li>
+                    <li>尝试各种姿势：如回眸，抬头闭眼，侧面挡太阳，都能展现你与故宫的历史美感。</li>
+                    <li>使用门框、窗框作为前景：这样拍的照片会更有层次感。</li>
+                    <li>寻找光影变化：在不同的时间段，故宫的光影变化会给你的照片带来不同的感觉。</li>
+                </ul>  
+
+                <h6>精选笔记：</h6>
+          <div class="d-flex flex-row flex-nowrap overflow-auto">
+               <div class="card card-block mx-2" style="min-width: 200px;" >
+                <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E6%8B%8D%E7%85%A7&pd=note">
+                  <img src="./docs/5.3/assets/img/media/case2/case25_0" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                </a>
+               </div>
+               <div class="card card-block mx-2" style="min-width: 200px;">
+                <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E6%8B%8D%E7%85%A7&pd=note">
+                <img src="./docs/5.3/assets/img/media/case2/case25_1" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                </div> 
+                <div class="card card-block mx-2" style="min-width: 200px;">
+                  <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E6%8B%8D%E7%85%A7&pd=note">
+                    <img src="./docs/5.3/assets/img/media/case2/case25_2" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                 </div>  
+                 <div class="card card-block mx-2" style="min-width: 200px;">
+                  <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E6%8B%8D%E7%85%A7&pd=note">
+                    <img src="./docs/5.3/assets/img/media/case2/case25_3" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                 </div>
+                 <div class="card card-block mx-2" style="min-width: 200px;">
+                  <a href="https://m.baidu.com/s?word=%E6%95%85%E5%AE%AB%E6%8B%8D%E7%85%A7&pd=note">
+                    <img src="./docs/5.3/assets/img/media/case2/case25_4" class="card-img-top" alt="Hollywood Sign on The Hill" /></a>
+                 </div>           
+            </div>
+            <br/>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-outline-secondary fs-7 fst-normal">
+                    <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source1.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                    <img class="relative z-[1] block" src="./docs/5.3/assets/img/favicons/source2.png" alt="fossilageminerals.com favicon" width="16" height="16" style="width: 16px; height: 16px;">
+                    5 SOURCES
+                  </button>
+                  &thinsp;&thinsp;
+                  <span class="badge rounded-pill text-bg-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                      </svg>
+                  </span>
+                  &thinsp;&thinsp;
+                  <span class="badge rounded-pill text-bg-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                      </svg>
+                  </span>
+            </div>
+            <br>
+            <br>
+
+
+
+            </div>
+            
+            <!-- <div class="col-md-12" id="sub2_section7">
+                <h3 class="text-body-emphasis">争议与法律问题</h3>
+                <ul class="fs-5 fst-normal">
+                    <li>争议言论: 涉及非法移民、性别歧视、种族歧视、仇外及反伊斯兰等言论</li>
+                    <li>弹劾: 两次弹劾，分别因滥用职权和煽动暴力</li>
+                    <li>法律问题: 2024年在“封口费”刑事案中被控34项罪名全部成立</li>
+                    <li>特别调查: 穆勒调查未找到足够证据指控其与俄罗斯共谋犯罪或协调</li>
+                </ul>
+            </div> -->
+
+
+      </article>
+
+      <!-- <nav class="blog-pagination" aria-label="Pagination">
+        <a class="btn btn-outline-primary rounded-pill" href="#">Older</a>
+        <a class="btn btn-outline-secondary rounded-pill disabled" aria-disabled="true">Newer</a>
+      </nav> -->
+
+    </div>
+  </div>
+
+  <div class="text-center fixed-bottom custom-popover" data-bs-toggle="popover" data-bs-placement="top" data-bs-custom-class="custom-popover" data-bs-title="Agentpedia ask more" data-bs-content="故宫的历史">
+    <span class="badge rounded-pill text-bg-primary fs-6">Ask Anything
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+            <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/>
+          </svg>
+    </span>
+    <br><br>
+  </div>
+
+
+</main>
+
+<footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+  <p>Agentpedia built for <a href="https://baidu.com/">Baidu</a> by <a href="#">@sasd-adv</a>.</p>
+  <p class="mb-0">
+    <a href="#">Back to top</a>
+  </p>
+</footer><script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+      const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+      const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+    });
+
+    
+  </script>
+    </body>
+</html>
